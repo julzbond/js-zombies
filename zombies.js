@@ -212,11 +212,12 @@ function Player(name, health, strength, speed){
  */
 
  this.equip = function(itemToEquip){
-  if (itemToEquip instanceof Weapon && this.getPack().indexOf(itemToEquip) !== -1){
+  var pack = this.getPack();
+  if (itemToEquip instanceof Weapon && pack.indexOf(itemToEquip) !== -1){
     if (this.equipped){
-      this.getPack().push(this.equipped);
+      pack.push(this.equipped);
     }
-    this.equipped = this.getPack()[this.getPack().indexOf(itemToEquip)];
+    this.equipped = pack[pack.indexOf(itemToEquip)];
     this.discardItem(itemToEquip);
   }
  }
